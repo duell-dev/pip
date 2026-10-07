@@ -1,0 +1,195 @@
+<div id="pip-motion" data-state="idle" data-motion="true">
+  <style>
+    #pip-motion { --pip-ink: light-dark(#342c27, #f4e9df); --pip-muted: light-dark(#73665c, #b9aaa0); --pip-surface: light-dark(#f5eee5, #2a2725); --pip-button: light-dark(#eee4d9, #38312d); --pip-active: light-dark(#713f2a, #f3b388); --pip-on-active: light-dark(#fff6ed, #372318); color: var(--pip-ink); font: 14px/1.45 system-ui, sans-serif; padding: 12px 0; }
+    #pip-motion * { box-sizing: border-box; }
+    #pip-motion .pip-stage { display: flex; align-items: center; justify-content: center; min-height: 258px; padding: 24px 10px; }
+    #pip-motion .pip-notch { width: 430px; max-width: 100%; display: flex; align-items: center; gap: 12px; background: var(--pip-surface); border-radius: 44px; padding: 16px 26px 16px 12px; }
+    #pip-motion .pip-sprite { flex: 0 0 168px; width: 168px; height: 168px; }
+    #pip-motion .pip-copy { min-width: 0; }
+    #pip-motion .pip-name { margin: 0 0 4px; font-size: 30px; font-weight: 500; letter-spacing: -.8px; }
+    #pip-motion .pip-message { margin: 0; min-height: 42px; color: var(--pip-muted); }
+    #pip-motion .pip-controls, #pip-motion .pip-options { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; justify-content: center; margin-top: 14px; }
+    #pip-motion button { font: inherit; color: var(--pip-ink); background: var(--pip-button); border: 0; border-radius: 16px; padding: 10px 14px; min-height: 44px; }
+    #pip-motion button[aria-pressed="true"] { color: var(--pip-on-active); background: var(--pip-active); }
+    #pip-motion button:disabled { opacity: .5; }
+    #pip-motion label { display: flex; gap: 6px; align-items: center; min-height: 44px; }
+    #pip-motion input { accent-color: var(--pip-active); }
+    #pip-motion .pip-options { gap: 18px; }
+    #pip-motion .pip-caption { color: var(--pip-muted); text-align: center; min-height: 21px; margin: 10px 0 0; font-size: 12px; }
+    #pip-motion .pip-timeline { display: flex; align-items: center; gap: 12px; max-width: 360px; margin: 6px auto 0; padding: 0 12px; }
+    #pip-motion .pip-timeline label { white-space: nowrap; font-size: 12px; font-variant-numeric: tabular-nums; min-width: 85px; }
+    #pip-motion .pip-timeline input { width: 100%; min-width: 0; min-height: 44px; }
+    @media (max-width: 420px) { #pip-motion .pip-notch { gap: 6px; padding: 12px 18px 12px 4px; border-radius: 32px; } #pip-motion .pip-sprite { flex-basis: 132px; width: 132px; height: 132px; } #pip-motion .pip-stage { min-height: 222px; } #pip-motion .pip-controls { gap: 6px; } #pip-motion button { padding: 10px 12px; } }
+  </style>
+  <div class="pip-stage viz-dotted-background">
+    <div class="pip-notch">
+      <canvas class="pip-sprite" width="256" height="256" role="img" aria-label="Pip, an apricot bird, blinking softly"></canvas>
+      <div class="pip-copy"><p class="pip-name">pip</p><p class="pip-message" aria-live="polite">Here when you need me.</p></div>
+    </div>
+  </div>
+  <div class="pip-controls" role="group" aria-label="Pip animation">
+    <button class="cursor-interaction" type="button" data-pose="idle" aria-pressed="true">Idle</button>
+    <button class="cursor-interaction" type="button" data-pose="capture" aria-pressed="false">Catch a note</button>
+    <button class="cursor-interaction" type="button" data-pose="think" aria-pressed="false">Thinking</button>
+    <button class="cursor-interaction" type="button" data-pose="celebrate" aria-pressed="false">Done!</button>
+    <button class="cursor-interaction" type="button" data-pose="rest" aria-pressed="false">Rest</button>
+  </div>
+  <div class="pip-options">
+    <label><input type="checkbox" data-control="motion" checked> Motion</label>
+    <label><input type="checkbox" data-control="sound"> Sound</label>
+    <button class="cursor-interaction" type="button" data-control="chirp" disabled>Check-in chirp</button>
+  </div>
+  <div class="pip-timeline"><label for="pip-frame">Frame <span data-frame-label>1 / 12</span></label><input id="pip-frame" type="range" min="0" max="11" step="1" value="0" aria-label="Animation frame"></div>
+  <p class="pip-caption" aria-live="polite">Silent company · sound off</p>
+  <script>
+    (() => {
+      const root = document.getElementById('pip-motion');
+      const sprite = root.querySelector('.pip-sprite');
+      const context = sprite.getContext('2d');
+      const message = root.querySelector('.pip-message');
+      const caption = root.querySelector('.pip-caption');
+      const motion = root.querySelector('[data-control="motion"]');
+      const sound = root.querySelector('[data-control="sound"]');
+      const chirp = root.querySelector('[data-control="chirp"]');
+      const scrubber = root.querySelector('#pip-frame');
+      const frameLabel = root.querySelector('[data-frame-label]');
+      const reduced = matchMedia('(prefers-reduced-motion: reduce)');
+      const assets = PIP_ANIMATION_ASSETS;
+      const poses = {
+        idle: { message: 'Here when you need me.', alt: 'blinking softly and looking around', sound: 'Silent company', notes: [], still: 0, loop: true, times: [2300, 65, 65, 65, 95, 65, 450, 320, 230, 320, 230, 750] },
+        capture: { message: 'Got it. I’ll keep it safe.', alt: 'lifting and tucking away a blue note', sound: 'Capture chirp', notes: [[0, 1700, 2400, .11]], still: 11, times: [120, 90, 90, 90, 100, 100, 100, 100, 140, 140, 110, 0] },
+        think: { message: 'Finding the connections…', alt: 'raising a wing and tapping its chin', sound: 'Silent thinking', notes: [], still: 4, loop: true, times: [900, 100, 100, 160, 240, 170, 240, 170, 240, 110, 110, 900] },
+        celebrate: { message: 'One little thing, done.', alt: 'fluttering both wings with joy', sound: 'Completion trill', notes: [[0, 1800, 2600, .09], [.13, 2200, 3100, .09], [.26, 2500, 3400, .12]], still: 5, times: [140, 95, 95, 95, 100, 140, 85, 85, 110, 100, 110, 0] },
+        rest: { message: 'Taking a quiet moment.', alt: 'covering a little yawn and closing its eyes', sound: 'Silent rest', notes: [], still: 11, times: [200, 170, 170, 180, 240, 320, 170, 170, 170, 180, 200, 0] }
+      };
+      const checkIn = [[0, 1900, 2700, .12], [.2, 1600, 2300, .14]];
+      const images = {};
+      let selected = 'idle', frame = 0, timer, ready = false;
+      let audio, voices = [], soundVersion = 0;
+
+      function stopSound() {
+        soundVersion++;
+        for (const voice of voices) { try { voice.stop(); } catch {} }
+        voices = [];
+      }
+      function draw(index) {
+        frame = index;
+        scrubber.value = String(index);
+        frameLabel.textContent = `${index + 1} / 12`;
+        sprite.dataset.frame = String(index);
+        if (!ready) return;
+        const [anchorX, anchorY] = assets.idle.anchors[0];
+        const [dx, dy, scale, angle] = assets[selected].alignment[index];
+        context.clearRect(0, 0, 256, 256);
+        context.save();
+        // Undo small camera drift in the drawings, using the same body reference.
+        context.translate(128 - anchorX * 1.2, 239 - anchorY * 1.2);
+        context.scale(1.2, 1.2);
+        context.translate(96, 96);
+        context.rotate(-angle);
+        context.scale(1 / scale, 1 / scale);
+        context.translate(-96 - dx, -96 - dy);
+        context.drawImage(images[selected], index % 4 * 192, Math.floor(index / 4) * 192, 192, 192, 0, 0, 192, 192);
+        context.restore();
+      }
+      function schedule() {
+        clearTimeout(timer);
+        if (!ready || !motion.checked || reduced.matches || document.hidden) return;
+        const pose = poses[selected];
+        const duration = pose.times[frame];
+        if (duration > 0) timer = setTimeout(() => {
+          if (frame < 11) draw(frame + 1);
+          else if (pose.loop) draw(0);
+          else return;
+          schedule();
+        }, duration);
+      }
+      function render(restart = false) {
+        const pose = poses[selected];
+        const moving = motion.checked && !reduced.matches;
+        root.dataset.state = selected;
+        root.dataset.motion = String(moving);
+        motion.disabled = reduced.matches;
+        message.textContent = pose.message;
+        sprite.setAttribute('aria-label', 'Pip, an apricot bird, ' + pose.alt);
+        root.querySelectorAll('[data-pose]').forEach(button => button.setAttribute('aria-pressed', String(button.dataset.pose === selected)));
+        chirp.disabled = !sound.checked;
+        chirp.textContent = pose.notes.length ? 'Play chirp' : 'Check-in chirp';
+        caption.textContent = pose.sound + (sound.checked ? ' · sound on' : ' · sound off');
+        draw(restart ? (moving ? 0 : pose.still) : frame);
+        schedule();
+      }
+      function save() {
+        window.openai?.setWidgetState?.({ modelContent: { mascot: 'Pip', animation: selected }, privateContent: { motion: motion.checked, frame } })?.catch(() => {});
+      }
+      async function sing(notes) {
+        stopSound();
+        const version = soundVersion;
+        if (!sound.checked || !notes.length) return;
+        try {
+          audio ??= new AudioContext();
+          if (audio.state === 'suspended') await audio.resume();
+          if (!sound.checked || version !== soundVersion || document.hidden) return;
+          const start = audio.currentTime + .02;
+          for (const [delay, from, to, duration] of notes) {
+            const oscillator = audio.createOscillator();
+            const gain = audio.createGain();
+            oscillator.type = 'sine';
+            oscillator.frequency.setValueAtTime(from, start + delay);
+            oscillator.frequency.exponentialRampToValueAtTime(to, start + delay + duration * .65);
+            oscillator.frequency.exponentialRampToValueAtTime(to * .82, start + delay + duration);
+            gain.gain.setValueAtTime(0, start + delay);
+            gain.gain.linearRampToValueAtTime(.075, start + delay + .012);
+            gain.gain.exponentialRampToValueAtTime(.001, start + delay + duration);
+            gain.gain.linearRampToValueAtTime(0, start + delay + duration + .01);
+            oscillator.connect(gain).connect(audio.destination);
+            voices.push(oscillator);
+            oscillator.onended = () => { oscillator.disconnect(); gain.disconnect(); voices = voices.filter(item => item !== oscillator); };
+            oscillator.start(start + delay);
+            oscillator.stop(start + delay + duration + .02);
+          }
+        } catch {
+          sound.checked = false;
+          stopSound();
+          render();
+          caption.textContent = 'Sound unavailable in this preview.';
+        }
+      }
+      function restore(state) {
+        const candidate = state?.modelContent?.animation;
+        if (Object.hasOwn(poses, candidate)) selected = candidate;
+        motion.checked = state?.privateContent?.motion !== false && !reduced.matches;
+        render(true);
+        const savedFrame = state?.privateContent?.frame;
+        if (!motion.checked && Number.isInteger(savedFrame) && savedFrame >= 0 && savedFrame < 12) draw(savedFrame);
+      }
+      root.querySelectorAll('[data-pose]').forEach(button => button.addEventListener('click', () => {
+        selected = button.dataset.pose;
+        render(true);
+        save();
+        sing(poses[selected].notes);
+      }));
+      scrubber.addEventListener('input', () => {
+        const nextFrame = Number(scrubber.value);
+        motion.checked = false;
+        render();
+        draw(nextFrame);
+      });
+      scrubber.addEventListener('change', save);
+      motion.addEventListener('change', () => { render(motion.checked); save(); });
+      sound.addEventListener('change', () => { if (!sound.checked) stopSound(); render(); });
+      chirp.addEventListener('click', () => sing(poses[selected].notes.length ? poses[selected].notes : checkIn));
+      reduced.addEventListener('change', () => { motion.checked = !reduced.matches; render(true); });
+      document.addEventListener('visibilitychange', () => { if (document.hidden) { stopSound(); clearTimeout(timer); } else schedule(); });
+      window.addEventListener('pagehide', () => { clearTimeout(timer); stopSound(); audio?.close(); });
+      window.addEventListener('openai:set_globals', event => { if (event.detail?.globals?.widgetState) restore(event.detail.globals.widgetState); });
+      restore(window.openai?.widgetState);
+      Promise.all(Object.keys(assets).map(async name => {
+        const img = new Image();
+        img.src = assets[name].src;
+        await img.decode();
+        images[name] = img;
+      })).then(() => { ready = true; root.dataset.ready = 'true'; draw(frame); schedule(); }).catch(() => { caption.textContent = 'Pip’s animation could not load.'; });
+    })();
+  </script>
+</div>

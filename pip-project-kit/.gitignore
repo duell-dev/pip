@@ -1,0 +1,7 @@
+**/node_modules/
+preview/checks/
+evidence/codex-probe/scratch/
+evidence/codex-probe/codex-result.local.json
+.env
+.env.*
+*.log

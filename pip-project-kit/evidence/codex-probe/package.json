@@ -1,0 +1,12 @@
+{
+  "name": "companion-subscription-check",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "node codex-check.mjs --self-test",
+    "check:codex": "node codex-check.mjs"
+  },
+  "dependencies": {
+    "@openai/codex-sdk": "0.160.0"
+  }
+}

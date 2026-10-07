@@ -1,0 +1,15 @@
+node_modules/
+out/
+dist/
+build/
+.local/
+test-results/
+*.db
+*.db-shm
+*.db-wal
+*.sqlite*
+.env*
+*.log
+pip-project-kit/preview/checks/
+pip-project-kit/evidence/codex-probe/scratch/
+pip-project-kit/evidence/codex-probe/*.local.json

@@ -1,0 +1,17 @@
+{
+  "name": "pip-project-kit-tools",
+  "private": true,
+  "description": "Optional maintenance for the Pip planning and animation handoff; not the application.",
+  "engines": { "node": ">=24" },
+  "scripts": {
+    "build:assets": "node build-assets.cjs",
+    "check:kit": "node check-kit.cjs",
+    "check:preview": "node check-preview.cjs",
+    "check:standalone": "node check-preview.cjs --standalone",
+    "manifest": "node check-kit.cjs --write-manifest"
+  },
+  "devDependencies": {
+    "playwright": "1.62.1",
+    "sharp": "0.35.4"
+  }
+}
