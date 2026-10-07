@@ -1,5 +1,7 @@
 # Pip assets and interaction identity
 
+Implementation update, 7 October 2026: the application reuses the existing idle/capture artwork, frame registration and capture timings in its own React canvas component. It has a still idle pose, one animation after a committed save, quiet/reduced-motion stills and no sound. The packaging/tray icon is cropped from the supplied idle frame. Original atlases, metadata, prompts and preview/player files remain unchanged; no new mascot artwork was generated.
+
 The selected mascot is Pip: a plump apricot bird with a cream belly, tiny golden beak and feet, two tuft feathers and warm dark eyes. The user chose this character and the bird theme. Preserve its proportions and personality when the software project begins; another naming or visual-design round is not a prerequisite.
 
 ## Asset inventory

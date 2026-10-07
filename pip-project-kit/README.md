@@ -1,5 +1,7 @@
 # Pip project kit
 
+> **Implementation update — 7 October 2026:** the owner has authorized local implementation. The parent project directory now contains the working offline Electron application, pinned dependencies and Windows packaging. See its `README.md` and `IMPLEMENTATION.md` for commands and application evidence. The planning material below is preserved as the original handoff; its statements about implementation not yet existing are historical. Artwork, preview tools and Codex evidence remain unchanged.
+
 Pip is a Windows personal productivity companion for capturing messy thoughts, organizing them into a knowledge graph, and choosing a useful next action. Its mascot is the apricot bird in this folder. The product should reduce the effort of managing a busy life, particularly for its first user, who has ADHD.
 
 Prepared 6 October 2026. This folder is the complete planning and asset handoff. It contains no application implementation. The only executable code is the existing animation prototype, its maintenance checks, and the disposable Codex integration probe.

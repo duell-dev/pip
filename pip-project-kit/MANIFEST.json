@@ -8,43 +8,43 @@
     },
     {
       "path": "AI_INTEGRATION.md",
-      "bytes": 10023,
-      "sha256": "1e3a573d1143c7486aba34adec4543f9cb57a6ec9faf1192deeb4d84323f8621"
+      "bytes": 10589,
+      "sha256": "d160af8e4638aefdb5982ad43069a33ede34acdacc282d48f47b31464053a53c"
     },
     {
       "path": "ARCHITECTURE.md",
-      "bytes": 15800,
-      "sha256": "e40a00ad5e39e749e55e262e188e0bbbb7b28bc01ccf87fbc56d6a49548cf990"
+      "bytes": 17423,
+      "sha256": "a1767a3d2052a2a1adfcda359480f200ea631aaabc29697553d11b60b81c68cb"
     },
     {
       "path": "ASSETS.md",
-      "bytes": 6564,
-      "sha256": "16b302adf69f71f26e3d4951a9112f68dbd7ea7d81200ff5456505d23b744b26"
+      "bytes": 7023,
+      "sha256": "3a66739b992a87ca094c36fd593155efe9c6b92729cd8452e471936856f29028"
     },
     {
       "path": "DEVELOPMENT_PLAN.md",
-      "bytes": 16158,
-      "sha256": "94cdfcf2c2c1c661874e7a7a58b8a426cd1bc84e0deaf78ede8286b4a71233ac"
+      "bytes": 19518,
+      "sha256": "a96a1025d88a514ae9a2edad8dd702d4b962a1097858395bee54ef0dd324dee4"
     },
     {
       "path": "HANDOFF.md",
-      "bytes": 4709,
-      "sha256": "c4813b49437054f04fc77bd7281835d6d2391fe47a1f3f19d61f173ad908e68f"
+      "bytes": 5145,
+      "sha256": "e81ff59a5b54dd4ba65d7309929f467fb01d1440c98e1bc7693d2e140754bc66"
     },
     {
       "path": "PRD.md",
-      "bytes": 15084,
-      "sha256": "2328fe3ba19155722b374f2170396032e123abb62c9568582d6a8fc2c9fee7ce"
+      "bytes": 15333,
+      "sha256": "140987283ff40ef7aa2a315fd04d3d7e680a4d447833860a75e28c2f31c1ea10"
     },
     {
       "path": "README.md",
-      "bytes": 5542,
-      "sha256": "459498c211ab45157ec61f7f5850fcb6078ab7a366d96c1dfd9c24de42ef55a3"
+      "bytes": 6043,
+      "sha256": "acc9af09de8cbb36728295f41a5211708e8d705c81a785e31149fd88a64b6c68"
     },
     {
       "path": "VALIDATION.md",
-      "bytes": 3763,
-      "sha256": "736b8fb99d200f3b08a44e6f47bf2a39354d3abb418fb637d4b833e51232d759"
+      "bytes": 5288,
+      "sha256": "44fa01e7eb6d8ed46f184f86c61fdb887b3c973e4ca22e21ce557d7b91b99eca"
     },
     {
       "path": "assets/animation/assets.json",

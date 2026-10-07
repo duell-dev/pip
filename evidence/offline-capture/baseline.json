@@ -1,0 +1,93 @@
+{
+  "checkedAt": "2026-10-07T08:31:41.044Z",
+  "osRelease": "10.0.26300",
+  "cpu": "13th Gen Intel(R) Core(TM) i7-13650HX",
+  "logicalCPUs": 12,
+  "ramGB": 23.73033905029297,
+  "measuredSeconds": 600,
+  "averageElectronCPUPercent": 0.014617936358113865,
+  "maxWorkingSetMB": 361.8203125,
+  "samples": [
+    {
+      "cpu": 0.014913582352502983,
+      "workingSetMB": 361.8203125
+    },
+    {
+      "cpu": 0.013476814562431907,
+      "workingSetMB": 355.48828125
+    },
+    {
+      "cpu": 0.06611159421784685,
+      "workingSetMB": 356.16796875
+    },
+    {
+      "cpu": 0.005865232269691437,
+      "workingSetMB": 356.13671875
+    },
+    {
+      "cpu": 0.01567768675445103,
+      "workingSetMB": 356.25
+    },
+    {
+      "cpu": 0.003298721834262026,
+      "workingSetMB": 356.23828125
+    },
+    {
+      "cpu": 0.007064605176723195,
+      "workingSetMB": 355.88671875
+    },
+    {
+      "cpu": 0.013491989094693516,
+      "workingSetMB": 355.8046875
+    },
+    {
+      "cpu": 0.002736110994471823,
+      "workingSetMB": 355.9765625
+    },
+    {
+      "cpu": 0.006208868096381004,
+      "workingSetMB": 356.88671875
+    },
+    {
+      "cpu": 0.014677446090737097,
+      "workingSetMB": 356.94921875
+    },
+    {
+      "cpu": 0.005761273470410172,
+      "workingSetMB": 357.0390625
+    },
+    {
+      "cpu": 0.020906129106116837,
+      "workingSetMB": 356.58984375
+    },
+    {
+      "cpu": 0.016694493497001157,
+      "workingSetMB": 356.53125
+    },
+    {
+      "cpu": 0.013296678221740028,
+      "workingSetMB": 356.62109375
+    },
+    {
+      "cpu": 0.002459319208228446,
+      "workingSetMB": 356.56640625
+    },
+    {
+      "cpu": 0.011348973014248944,
+      "workingSetMB": 356.625
+    },
+    {
+      "cpu": 0.012820031958072464,
+      "workingSetMB": 356.69140625
+    },
+    {
+      "cpu": 0.007940399985590423,
+      "workingSetMB": 358.13671875
+    },
+    {
+      "cpu": 0.03760877725667598,
+      "workingSetMB": 361.359375
+    }
+  ],
+  "note": "Unsigned packaged app, empty isolated profile, collapsed still Pip, Playwright attached, sum of Electron process CPU/working sets (shared pages may be counted more than once). Phase 0 baseline before the final source-preservation and lifecycle fixes; no idle timers were added by those fixes."
+}

@@ -1,5 +1,17 @@
 # Pip architecture and data design
 
+## Phase 0 decisions — 7 October 2026
+
+The parent project now implements Electron 44.6.0 / React 19.3.0 / TypeScript 7.0.2 / electron-vite 5.0.0 / pnpm 11.19.0, with Vite 7.3.7 for declared peer compatibility and electron-builder 26.15.3. Packaged Windows x64 SQLite capture and restart checks passed with better-sqlite3 13.0.3 (SQLite 3.53.4).
+
+One worker thread owns the writer. WAL/full sync, foreign keys, transactional schema version 1, immutable source revisions and atomic draft replacement are in place. Packaged data lives under `%APPDATA%\Pip`, development under `.local/development`; tests override the profile explicitly. Only captures, revisions, draft and preferences are implemented. Organization jobs and graph projection tables belong to their later migrations.
+
+Retain SQLite as the physical graph store: measured 10,000-capture corpora at 25,000 nodes/75,000 edges and 50,000 nodes/150,000 edges. All listed bounded query classes were under 1 ms warm p95; the stress rebuild was about 514 ms. This is a synthetic physical-storage benchmark, not graph product acceptance. Keep the mandatory Cytoscape interactive view and accessible related-items list in Phase 4.
+
+Select main-process asynchronous Electron safeStorage/Windows DPAPI for future API credentials. Actual synthetic encryption/decryption passed; simulated unavailable encryption fails closed. No key persistence or provider integration is enabled yet. Original proposed architecture below remains the design for later batches; application commands and full evidence are in the parent `IMPLEMENTATION.md`.
+
+## Original architecture baseline
+
 Pip's proposed first architecture is a single local Windows application. A privileged application process owns persistence, provider access and background work; an isolated renderer presents the companion and workspace. A capture is committed before any AI request starts.
 
 These implementation choices are recommendations for Phase 0. SQLite as the immediate capture store and asynchronous construction of a knowledge graph are retained requirements. The physical graph engine and framework were not previously finalized.

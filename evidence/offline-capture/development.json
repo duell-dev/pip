@@ -1,0 +1,7 @@
+{
+  "checkedAt": "2026-10-07T08:36:44.961Z",
+  "command": "electron-vite dev; REMOTE_DEBUGGING_PORT=0 for test instrumentation only",
+  "capture": "passed",
+  "draftAfterRendererReload": "passed",
+  "errors": []
+}

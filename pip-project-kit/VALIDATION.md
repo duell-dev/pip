@@ -1,5 +1,21 @@
 # Pip project kit validation
 
+## Application milestone evidence — 7 October 2026
+
+The parent directory now contains a working offline application. Its separate `IMPLEMENTATION.md` and `evidence/offline-capture/` record actual SQLite, Electron, packaged-window and benchmark results. The original prototype/kit evidence below remains distinct.
+
+- Development and packaged Windows x64 capture-to-SQLite-to-inbox flows passed without credentials or internet.
+- 100 acknowledged captures survived full process-tree termination and restart in each desktop suite. Draft dismissal/restart and graceful quit were checked.
+- Real SQLite lock contention, transaction rollback and a controlled database capacity ceiling tested failure behavior. Physical disk exhaustion and hardware power failure were not performed.
+- The selected graph-store candidate was measured against 10,000 captures and up to 50,000 nodes / 150,000 edges. This does not complete PIP-10/PIP-11.
+- Actual synthetic Windows protected encryption/decryption passed; unavailable-credential-store behavior was simulated and failed closed.
+- The unsigned installer was built; packaged executable tests do not establish clean-machine installation, upgrade or uninstall behavior.
+- No live provider request, account modification, publication or license assignment was made.
+
+The supplied asset/probe files are unchanged. The kit manifest is intentionally refreshed for these documentation updates; its original state is preserved in the initial local Git commit.
+
+## Original kit validation record
+
 The handoff is a planning package with portable design assets and an integration probe. It does not contain a working productivity application. Product acceptance checks remain tasks in DEVELOPMENT_PLAN.md.
 
 ## Checks for this package

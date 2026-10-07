@@ -1,5 +1,7 @@
 # Pip isolated project handoff
 
+> **Implementation update — 7 October 2026:** the owner's local implementation instruction supersedes the planning-only authorization below. The offline capture batch is implemented in the parent project directory. No publication, provider outreach or license assignment was performed. The next batch is the rest of Phase 1: editable records/areas, source detail, undo and FTS search. The four-provider version 1 scope is unchanged.
+
 Use this folder to start a new, isolated software project. The owner requested a complete plan and assets before implementation. No product application has been created, and no implementation should be inferred from the animation demo or the synthetic Codex probe.
 
 ## Brief for the next development session

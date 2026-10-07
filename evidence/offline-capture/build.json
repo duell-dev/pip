@@ -1,0 +1,24 @@
+{
+  "checkedAt": "2026-10-07T08:39:39.117Z",
+  "platform": "Windows x64",
+  "unsigned": true,
+  "published": false,
+  "installerExecution": "Not tested; packaged executable verified directly",
+  "artifacts": [
+    {
+      "path": "dist/Pip Setup 0.1.0.exe",
+      "bytes": 120955923,
+      "sha256": "16a3e89e3d801e7d297e1605eef52f1071781e332971d604fdd2bb8af594148a"
+    },
+    {
+      "path": "dist/win-unpacked/Pip.exe",
+      "bytes": 246334976,
+      "sha256": "f23e4bb20c146d0de5cce576da066e5657a5d1d0802537de43a6d8f7e704dee4"
+    },
+    {
+      "path": "dist/win-unpacked/resources/app.asar",
+      "bytes": 1405660,
+      "sha256": "430a14c4abef46657d072150015e0b9a3553ed507058cad5aa121e7f07469bfe"
+    }
+  ]
+}

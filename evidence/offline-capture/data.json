@@ -1,0 +1,17 @@
+{
+  "checkedAt": "2026-10-07T08:36:30.269Z",
+  "node": "24.21.0",
+  "electron": "44.6.0",
+  "sqlite": "3.53.4",
+  "capturesAfterRestart": 102,
+  "p95Save20KBMs": 1.4274999999999949,
+  "crashes": {
+    "before-commit": "passed",
+    "after-commit": "passed",
+    "draft-only": "passed"
+  },
+  "sqliteBusy": "real lock",
+  "sqliteFull": "real error via simulated capacity ceiling",
+  "rollback": "controlled trigger failure",
+  "credentialUnavailable": "simulated; fail closed"
+}

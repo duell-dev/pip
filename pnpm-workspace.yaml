@@ -1,0 +1,8 @@
+allowBuilds:
+  electron-winstaller: false
+  electron: true
+  better-sqlite3: false
+  esbuild: true
+nodeLinker: hoisted
+minimumReleaseAgeExclude:
+  - electron@44.6.0

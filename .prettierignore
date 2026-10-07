@@ -1,0 +1,6 @@
+pip-project-kit/
+pnpm-lock.yaml
+out/
+dist/
+build/
+test-results/

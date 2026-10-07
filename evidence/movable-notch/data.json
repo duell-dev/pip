@@ -1,0 +1,19 @@
+{
+  "checkedAt": "2026-10-07T08:58:22.172Z",
+  "node": "24.21.0",
+  "electron": "44.6.0",
+  "sqlite": "3.53.4",
+  "capturesAfterRestart": 102,
+  "migration": "v1 to v2 preserves 102 captures and the committed draft",
+  "notchPosition": "range validation and persistence after reopen passed",
+  "p95Save20KBMs": 1.3582999999999998,
+  "crashes": {
+    "before-commit": "passed",
+    "after-commit": "passed",
+    "draft-only": "passed"
+  },
+  "sqliteBusy": "real lock",
+  "sqliteFull": "real error via simulated capacity ceiling",
+  "rollback": "controlled trigger failure",
+  "credentialUnavailable": "simulated; fail closed"
+}

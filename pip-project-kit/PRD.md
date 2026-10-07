@@ -1,5 +1,7 @@
 # Pip product requirements
 
+Implementation status, 7 October 2026: the product baseline below is unchanged. The first offline capture batch is implemented; the current acceptance-ID checklist is in DEVELOPMENT_PLAN.md. This is neither all of Phase 1 nor version 1 completion.
+
 Pip turns unstructured captures into a useful personal memory and a manageable set of next actions. Its first release is a local Windows companion for the founder's own daily use. Capturing a thought must remain quick even when the network, a model or the organization process is unavailable.
 
 Status: product baseline and proposed version 1 requirements, 6 October 2026. The agreed direction is identified in the project README. Detailed interaction defaults below are recommendations to validate during the personal trial.

@@ -1,0 +1,97 @@
+{
+  "checkedAt": "2026-10-07T08:56:30.043Z",
+  "mode": "desktop",
+  "startupToInputMs": 514.3063999999999,
+  "uiSaveP95Ms": 67.31830000000082,
+  "acknowledgedCapturesAfterForcedExit": 100,
+  "finalCapturesAfterGracefulExit": 101,
+  "sqliteBusy": "real second-process lock",
+  "shortcutCollision": "real registration collision, reserved by test process",
+  "monitorRecovery": "simulated display-removed event after moving offscreen; physical unplug unverified",
+  "notchPosition": "simulated native move events; top snap, edge clamp, expand/collapse anchor and forced/graceful restart passed",
+  "network": "Playwright context offline; app denies remote requests",
+  "sourceCRLF": "raw paste and untouched CRLF after editing preserved exactly",
+  "boundaries": {
+    "sandbox": true,
+    "contextIsolation": true,
+    "nodeIntegration": false,
+    "packaged": false,
+    "dataDirectory": "isolated disposable test profile",
+    "displays": [
+      {
+        "bounds": {
+          "x": 2560,
+          "y": 0,
+          "width": 1708,
+          "height": 1067
+        },
+        "workArea": {
+          "x": 2560,
+          "y": 0,
+          "width": 1708,
+          "height": 1019
+        },
+        "scaleFactor": 1.5
+      },
+      {
+        "bounds": {
+          "x": -1080,
+          "y": 0,
+          "width": 1080,
+          "height": 1920
+        },
+        "workArea": {
+          "x": -1080,
+          "y": 0,
+          "width": 1080,
+          "height": 1872
+        },
+        "scaleFactor": 1
+      },
+      {
+        "bounds": {
+          "x": 0,
+          "y": 0,
+          "width": 2560,
+          "height": 1080
+        },
+        "workArea": {
+          "x": 0,
+          "y": 0,
+          "width": 2560,
+          "height": 1032
+        },
+        "scaleFactor": 1
+      }
+    ],
+    "encryption": true
+  },
+  "safeStorage": {
+    "available": true,
+    "plaintextAbsent": true,
+    "matches": true
+  },
+  "memory": [
+    {
+      "type": "Browser",
+      "workingSetKB": 154696,
+      "percentCPU": 0.02187054496584045
+    },
+    {
+      "type": "GPU",
+      "workingSetKB": 187636,
+      "percentCPU": 0.029722509127574223
+    },
+    {
+      "type": "Utility",
+      "workingSetKB": 89336,
+      "percentCPU": 0
+    },
+    {
+      "type": "Tab",
+      "workingSetKB": 152096,
+      "percentCPU": 0.033680529964549955
+    }
+  ],
+  "errors": []
+}

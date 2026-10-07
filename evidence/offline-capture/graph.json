@@ -1,0 +1,84 @@
+{
+  "checkedAt": "2026-10-07T08:14:16.135Z",
+  "corpus": "Deterministic synthetic captures and typed edges; bounded views; warm query samples; no model calls",
+  "results": [
+    {
+      "captures": 10000,
+      "nodeCount": 25000,
+      "edgeCount": 75000,
+      "ingestionMs": 543.808,
+      "rebuildMs": 232.32579999999996,
+      "delete100CapturesMs": 8.188200000000052,
+      "databaseBytes": 20770816,
+      "queries": {
+        "projectMembership": {
+          "rows": 70,
+          "p95Ms": 0.0283999999999196
+        },
+        "oneHop": {
+          "rows": 7,
+          "p95Ms": 0.004399999999918691
+        },
+        "twoHop": {
+          "rows": 100,
+          "p95Ms": 0.1270999999999276
+        },
+        "supportingSources": {
+          "rows": 70,
+          "p95Ms": 0.1352999999999156
+        },
+        "unresolvedPrerequisites": {
+          "rows": 1,
+          "p95Ms": 0.004399999999918691
+        },
+        "resourcesByProject": {
+          "rows": 70,
+          "p95Ms": 0.02400000000000091
+        },
+        "fts": {
+          "rows": 50,
+          "p95Ms": 0.014999999999986358
+        }
+      }
+    },
+    {
+      "captures": 10000,
+      "nodeCount": 50000,
+      "edgeCount": 150000,
+      "ingestionMs": 1059.0703999999998,
+      "rebuildMs": 513.9949999999999,
+      "delete100CapturesMs": 13.919300000000021,
+      "databaseBytes": 34791424,
+      "queries": {
+        "projectMembership": {
+          "rows": 100,
+          "p95Ms": 0.07160000000021682
+        },
+        "oneHop": {
+          "rows": 5,
+          "p95Ms": 0.0039999999999054126
+        },
+        "twoHop": {
+          "rows": 100,
+          "p95Ms": 0.057999999999992724
+        },
+        "supportingSources": {
+          "rows": 100,
+          "p95Ms": 0.23229999999966822
+        },
+        "unresolvedPrerequisites": {
+          "rows": 1,
+          "p95Ms": 0.005200000000058935
+        },
+        "resourcesByProject": {
+          "rows": 100,
+          "p95Ms": 0.032299999999850115
+        },
+        "fts": {
+          "rows": 50,
+          "p95Ms": 0.01639999999997599
+        }
+      }
+    }
+  ]
+}

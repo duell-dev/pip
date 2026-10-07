@@ -1,5 +1,42 @@
 # Pip development plan
 
+## Current checklist — 7 October 2026
+
+The owner authorized local implementation. The parent project now contains the first working offline capture batch. The original phase plan below is preserved; no version 1 requirement has been removed.
+
+| Gate | Current status |
+| --- | --- |
+| Phase 0 offline exit gate | Passed: pinned compatible build, packaged Windows shell + real SQLite writes, graph benchmark/decision, data path/migration decision, credential-store proof and no-credential capture path. Current official build/security interfaces were reviewed. |
+| Phase 0 Codex integration evidence | Historical probe retained, no new live request. Production config/tool isolation must pass in Phase 2 before organization is enabled. |
+| First capture batch | Passed: companion, inbox, transactional original/revision save, drafts, failure retention and restart/forced-termination checks. |
+| Full Phase 1 exit gate | Open: editable records, life areas/projects, undo and local search are next. Physical monitor removal and full accessibility/scaling checks remain open. |
+| Phases 2–7 | Remain in the backlog below, including all four providers, graph + interactive view, guidance, one daily check-in, data portability and personal trial. |
+
+| PRD ID | Evidence/status after this batch |
+| --- | --- |
+| PIP-01 | Offline text/link capture passed; confirms only after real SQLite commit. |
+| PIP-02 | Partial: single instance, top-edge panel, tray, three shortcut choices/disable, keyboard dismissal, conflict handling. Offscreen recovery is simulated; physical unplug and full Windows matrix remain open. |
+| PIP-03 | Partial: exact source, first immutable revision, hash and restart durability passed. Source editing/history UI and extraction-failure cases remain later work. |
+| PIP-04 | Open: durable organization queue and worker. Existing captures remain unorganized. |
+| PIP-05 | Open: editable Personal, Day job, Side hustle and projects in the next batch. |
+| PIP-06 | Open: separate task/note/idea/resource records and later model classification. |
+| PIP-07 | Open: corrections, evidence, overrides and undo. |
+| PIP-08 | Open: manual task fields and status/date handling. |
+| PIP-09 | Open: FTS5 binary validated in benchmark; user-facing search/filtering is next. |
+| PIP-10 | Open: SQLite physical graph decision passed; accepted assertions, rebuild/corrections product flow is Phase 4. |
+| PIP-11 | Open: Cytoscape interactive scoped view and accessible list. |
+| PIP-12 | Open: commitment-first next-action guidance. |
+| PIP-13 | Open: one configurable daily check-in. |
+| PIP-14 | Open: Codex login, OpenAI API, Claude API and Gemini API, all explicit. |
+| PIP-15 | Partial: capture has no AI dependency. Provider auth/quota/cancellation cases remain unimplemented. |
+| PIP-16 | Open: versioned export/import and tested backup/restore/deletion. |
+| PIP-17 | Partial: selected Pip, real save event, still idle, mute, quiet/reduced motion. Other events/audio controls remain later. |
+| PIP-18 | Partial: local path, local-only messaging, no transmission. Pending-job inspection/pause await Phase 2. |
+
+Current commands, measured results, limitations and recorded decisions are in the parent project's `README.md` and `IMPLEMENTATION.md`. A Codex-only alpha remains intermediate and cannot close PIP-14 or version 1.
+
+## Original phase plan
+
 Build Pip in an isolated project from this kit, starting with durable capture and a small complete workflow. The deliverable at each phase is running software with a specific acceptance gate. The Codex-only personal alpha is an intermediate milestone; version 1 retains all four AI connections and the graph.
 
 The effort ranges below assume one experienced developer working primarily on this project. They are planning estimates, not a delivery commitment. They exclude time waiting for signing credentials, provider access or outside review. Total estimated engineering effort is 35–55 focused days, approximately 7–11 full-time weeks. Re-estimate after Phase 2 with actual package, model and interaction measurements.

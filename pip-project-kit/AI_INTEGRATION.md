@@ -1,5 +1,7 @@
 # Pip AI integration plan and evidence
 
+Implementation update, 7 October 2026: the offline application runs without an SDK, runtime sign-in or API credentials. No new live provider checks or outreach were performed. The historical probe below is preserved unchanged and is not production isolation evidence. A missing Codex runtime/login cannot block capture; Phase 2 will expose that condition only when the user deliberately configures Codex. Inherited configuration/tool isolation remains a gate before background organization is enabled. The four explicit choices below remain required for version 1.
+
 Pip has four explicit connection options. The original all-three-subscriptions prerequisite was superseded: Codex login is the first route, and OpenAI, Claude and Gemini API keys are in scope. Claude/Gemini subscription login is deferred and does not block the product.
 
 ## Connection matrix

@@ -1,0 +1,25 @@
+{
+  "checkedAt": "2026-10-07T08:59:54.2161907Z",
+  "platform": "Windows x64",
+  "unsigned": true,
+  "published": false,
+  "installerExecution": "Not tested; packaged executable verified directly",
+  "nativeDrag": "Owner confirmed drag works; automated native pointer check obstructed by foreground window",
+  "artifacts": [
+    {
+      "path": "dist/Pip Setup 0.1.0.exe",
+      "bytes": 120956595,
+      "sha256": "fe6e24ea3357b98471797f85b0f1736788f5c3adcb84817d03292ca29e609e9b"
+    },
+    {
+      "path": "dist/win-unpacked/Pip.exe",
+      "bytes": 246334976,
+      "sha256": "ad87e232b385effe090bb61c6671a8f0144b7cdeb5f643c03af7186fa13d2bc1"
+    },
+    {
+      "path": "dist/win-unpacked/resources/app.asar",
+      "bytes": 1408857,
+      "sha256": "fc2c952422d2a38dafb064bf22453cd6665b134c895c7c6aaac3dfc674913ddc"
+    }
+  ]
+}
