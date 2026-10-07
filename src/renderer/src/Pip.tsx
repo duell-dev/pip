@@ -1,8 +1,5 @@
 import { useEffect, useRef, type RefObject } from "react";
-import {
-  idle,
-  capture,
-} from "../../../pip-project-kit/assets/animation/assets.json";
+import { idle, capture } from "../../../assets/pip/animation.json";
 
 // Drawing registration and capture timing from the supplied prototype, without its host wrapper.
 export function Pip({

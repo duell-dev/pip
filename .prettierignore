@@ -1,4 +1,5 @@
 pip-project-kit/
+assets/pip/animation.json
 pnpm-lock.yaml
 out/
 dist/

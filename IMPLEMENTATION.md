@@ -1,6 +1,6 @@
 # Offline capture milestone — 7 October 2026
 
-The owner's implementation instruction supersedes the kit's previous planning-only authorization. Product requirements are unchanged. This milestone implements Phase 0's offline gate and the first capture batch; it does **not** complete all of Phase 1 or version 1.
+This milestone implements Phase 0's offline gate and the first capture batch; it does **not** complete all of Phase 1 or version 1. The planning/prototype kit is retained locally and excluded from the current Git tree. The application builds from tracked source and artwork without that kit. Historical validation entries below describe the files available when those checks ran.
 
 ## Decisions
 
@@ -85,3 +85,9 @@ The owner requested a movable top notch and confirmed the drag works in Windows.
 The existing SQLite test now verifies migration from version 1 with 102 captures and a committed draft, position validation and persistence after reopen. The desktop suite simulates native move events and checks top-edge snap, edge clamping without anchor loss, and position recovery after forced and graceful restart. These event simulations are separate from the owner's manual drag confirmation; automated native pointer verification was obstructed by another foreground window. Physical monitor removal remains unverified.
 
 Follow-up build and test evidence is in `evidence/movable-notch/`. The earlier `evidence/offline-capture/` reports and build hashes describe the original milestone build and are preserved as historical evidence. Official native window behavior: [Electron drag regions](https://www.electronjs.org/docs/latest/tutorial/custom-window-interactions) and [BrowserWindow movement events](https://www.electronjs.org/docs/latest/api/browser-window).
+
+## Public contributor layout — 7 October 2026
+
+`pip-project-kit/` is now ignored and untracked, with all local files preserved. Required idle artwork and the exact two animation states used by the app live in `assets/pip/`; runtime and icon generation no longer depend on the kit. README links resolve within the public checkout. `CONTRIBUTING.md` explains the code boundaries and checks; `ROADMAP.md` preserves all 18 acceptance IDs and the remaining version 1 gates. No license has been assigned. This is a normal removal commit; earlier Git history still contains the kit.
+
+A separate checkout of the staged public source, without the kit, passed `pnpm package:dir`, `pnpm test:packaged`, `pnpm test:dev` and `node scripts/electron-node.cjs tests/data.cjs`. It reused the installed dependencies through a Windows junction; pnpm's automatic dependency reinstall was disabled only for that temporary checkout. This validates source independence, not a fresh dependency download. The packaged test retained all 100 acknowledged captures and the chosen notch position across forced termination. Asset bytes/metadata were compared against the originals. The Windows CI workflow uses pinned official actions, read-only repository permissions and ordinary pull-request events; hosted CI execution is recorded separately from these local passes.

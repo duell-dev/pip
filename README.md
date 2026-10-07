@@ -15,6 +15,8 @@ Settings offer three shortcut choices, disabling the shortcut, quiet mode and Qu
 Use Windows x64, Node.js **24.19.0** (24.x) and pnpm **11.19.0**. Package versions and transitive dependencies are pinned in `package.json` and `pnpm-lock.yaml`.
 
 ```powershell
+git clone https://github.com/duell-dev/pip.git
+cd pip
 pnpm install --frozen-lockfile
 pnpm dev
 ```
@@ -43,7 +45,7 @@ pnpm test:baseline
 - `test:baseline` measures ten minutes of idle packaged CPU/memory. It intentionally takes ten minutes.
 - `package:win` creates `dist/Pip Setup 0.1.0.exe` and `dist/win-unpacked/Pip.exe`. `package:dir` builds only the unpacked application. These are **unsigned local development builds**. No signing, publication or updates are enabled.
 
-Use `pnpm format` to format application sources and test scripts. It leaves the supplied kit and artwork alone. The tests create disposable profiles, reports and screenshots under `test-results`; they never use your regular Pip profile or call an AI provider. Some desktop tests temporarily register shortcuts and show application windows. Do not interact with those test windows while a suite runs.
+Use `pnpm format` to format application sources and test scripts. It leaves the artwork alone. The tests create disposable profiles, reports and screenshots under `test-results`; they never use your regular Pip profile or call an AI provider. Some desktop tests temporarily register shortcuts and show application windows. Do not interact with those test windows while a suite runs.
 
 ## Data
 
@@ -55,11 +57,9 @@ The database is **not encrypted**. Do not copy only an active `pip.db` file as a
 
 ## Project record
 
+- [Contributing: setup, code map and checks](CONTRIBUTING.md)
+- [Roadmap and version 1 acceptance checklist](ROADMAP.md)
 - [Implementation decisions and evidence](IMPLEMENTATION.md)
-- [Product requirements and all acceptance IDs](pip-project-kit/PRD.md)
-- [Development gates and remaining version 1 scope](pip-project-kit/DEVELOPMENT_PLAN.md)
-- [Architecture](pip-project-kit/ARCHITECTURE.md)
-- [AI routes and historical prototype evidence](pip-project-kit/AI_INTEGRATION.md)
-- [Asset provenance](pip-project-kit/ASSETS.md)
+- [Artwork and provenance](assets/pip/README.md)
 
-The supplied kit was preserved in the initial local Git commit. Its artwork, preview/player, tools and Codex probe remain separate from application code. The active app reuses the existing bird and capture registration/timing, without copying the preview host. No public code/content license has been assigned. The full product still includes Codex login plus OpenAI, Claude and Gemini API-key connections, a persistent knowledge graph and interactive graph, corrections, check-ins and data portability.
+The repository contains everything needed to build the application. The local planning/prototype kit is excluded from Git tracking; application artwork lives in `assets/pip`. The active app reuses the existing bird and capture registration/timing, without copying the preview host. No public code/content license has been assigned. The full product still includes Codex login plus OpenAI, Claude and Gemini API-key connections, a persistent knowledge graph and interactive graph, corrections, check-ins and data portability. See the implementation record for current limitations and the next development batch.

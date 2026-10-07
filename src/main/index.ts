@@ -158,12 +158,7 @@ else {
       const icon = app.isPackaged
         ? nativeImage.createFromPath(join(process.resourcesPath, "icon.png"))
         : nativeImage
-            .createFromPath(
-              join(
-                app.getAppPath(),
-                "pip-project-kit/assets/animation/idle.png",
-              ),
-            )
+            .createFromPath(join(app.getAppPath(), "assets/pip/idle.png"))
             .crop({ x: 0, y: 0, width: 362, height: 362 });
       win = new BrowserWindow({
         width: 240,

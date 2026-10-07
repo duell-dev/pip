@@ -3,6 +3,13 @@
   "version": "0.1.0",
   "private": true,
   "description": "Pip — offline Windows capture companion",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/duell-dev/pip.git"
+  },
+  "bugs": {
+    "url": "https://github.com/duell-dev/pip/issues"
+  },
   "main": "out/main/index.js",
   "packageManager": "pnpm@11.19.0",
   "engines": {
@@ -13,8 +20,8 @@
     "dev": "electron-vite dev",
     "build": "pnpm typecheck && electron-vite build",
     "typecheck": "tsc --noEmit",
-    "format": "prettier --write src tests scripts electron.vite.config.ts tsconfig.json package.json electron-builder.yml",
-    "format:check": "prettier --check src tests scripts electron.vite.config.ts tsconfig.json package.json electron-builder.yml",
+    "format": "prettier --write src tests scripts .github electron.vite.config.ts tsconfig.json package.json electron-builder.yml",
+    "format:check": "prettier --check src tests scripts .github electron.vite.config.ts tsconfig.json package.json electron-builder.yml",
     "test": "pnpm build && node scripts/electron-node.cjs tests/data.cjs",
     "benchmark": "pnpm build && node scripts/electron-node.cjs tests/graph-benchmark.cjs",
     "test:desktop": "node tests/desktop.cjs",

@@ -10,6 +10,4 @@ test-results/
 *.sqlite*
 .env*
 *.log
-pip-project-kit/preview/checks/
-pip-project-kit/evidence/codex-probe/scratch/
-pip-project-kit/evidence/codex-probe/*.local.json
+/pip-project-kit/
